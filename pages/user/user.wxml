@@ -1,0 +1,43 @@
+<!--pages/user/user.wxml-->
+
+<view class="container">
+  <!-- 用户信息 -->
+  <view class="user-info">
+    <image class="avatar" src="/images/avatar.png" mode="aspectFill"></image>
+    <text class="username">用户Bp5vKE</text>
+  </view>
+
+  <!-- 数据同步 -->
+  <view class="card">
+    <view class="section-title">数据同步</view>
+    <button class="btn btn-export" bindtap="exportToExcel">
+      <image class="icon" src="/images/export.png"></image>
+      导出到Excel
+    </button>
+    <button class="btn btn-import" bindtap="importExcel">
+      <image class="icon" src="/images/import.png"></image>
+      从Excel导入
+    </button>
+  </view>
+
+  <!-- 数据分析 -->
+  <view class="card">
+    <view class="section-title">数据分析</view>
+    <button class="btn btn-analysis" bindtap="viewDataAnalysis">
+      <image class="icon" src="/images/analysis.png"></image>
+      查看数据分析
+    </button>
+  </view>
+
+  <!-- 其他功能 -->
+  <view class="card">
+    <button class="btn btn-contact" bindtap="contactCustomerService">
+      <image class="icon" src="/images/contact.png"></image>
+      联系客服
+    </button>
+    <button class="btn btn-about" bindtap="aboutUs">
+      <image class="icon" src="/images/about.png"></image>
+      关于我们
+    </button>
+  </view>
+</view>

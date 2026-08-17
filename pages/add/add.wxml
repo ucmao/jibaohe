@@ -1,0 +1,176 @@
+<view class="container">
+  <!-- 图标选择 -->
+  <view class="section icon-section">
+    <view class="icon-picker" bindtap="selectIcon">
+      <block wx:if="{{selectedIcon}}">
+        <image class="selected-icon" src="{{selectedIcon}}" mode="aspectFit"/>
+      </block>
+      <text wx:else class="placeholder">选择图标</text>
+    </view>
+  </view>
+
+  <!-- 分类选择 -->
+  <view class="section category-section">
+    <scroll-view 
+      scroll-x 
+      class="category-scroll"
+      scroll-into-view="{{'category-' + selectedCategory}}"
+    >
+      <view 
+        class="category-item {{selectedCategory === item.id ? 'active' : ''}}" 
+        wx:for="{{categories}}" 
+        wx:key="id"
+        bindtap="selectCategory"
+        data-id="{{item.id}}"
+        id="category-{{item.id}}"
+      >
+        {{item.name}}
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 资产名称、价格、购买日期 -->
+  <view class="section">
+    <!-- 资产名称 -->
+    <view class="input-item">
+      <input 
+        class="input" 
+        placeholder="资产名称" 
+        value="{{assetName}}"
+        bindinput="onAssetNameInput"
+      />
+    </view>
+    <!-- 横线分割 -->
+    <view class="horizontal-divider"></view>
+    <!-- 价格 -->
+    <view class="input-item">
+      <input 
+        class="input" 
+        type="digit" 
+        placeholder="购买价格" 
+        value="{{purchasePrice}}"
+        bindinput="onPurchasePriceInput"
+      />
+    </view>
+    <!-- 横线分割 -->
+    <view class="horizontal-divider"></view>
+    <!-- 购买日期 -->
+    <view class="input-item">
+      <text class="input-label">购买日期</text>
+      <picker 
+        mode="date" 
+        value="{{purchaseDate}}" 
+        end="{{today}}"
+        bindchange="bindPurchaseDateChange"
+      >
+        <view class="date-button">
+          {{purchaseDateFormat || '选择日期'}}
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 按使用次数计算 -->
+  <view class="section switch-section">
+    <view class="switch-item">
+      <text>按使用次数</text>
+      <switch checked="{{useCount}}" bindchange="toggleUseCount" color="#07c160"/>
+    </view>
+    <!-- 按使用次数计算的输入框 -->
+    <block wx:if="{{useCount}}">
+      <view class="horizontal-divider"></view>
+      <view class="input-item">
+        <input 
+          class="input" 
+          type="digit" 
+          placeholder="预计使用次数" 
+          value="{{useCountValue}}"
+          bindinput="onUseCountInput"
+        />
+      </view>
+    </block>
+  </view>
+
+  <!-- 指定日均价 -->
+  <view class="section switch-section">
+    <view class="switch-item">
+      <text>指定日均价</text>
+      <switch checked="{{specifyDaily}}" bindchange="toggleSpecifyDaily" color="#07c160"/>
+    </view>
+    <!-- 指定日均价的输入框 -->
+    <block wx:if="{{specifyDaily}}">
+      <view class="horizontal-divider"></view>
+      <view class="input-item">
+        <input 
+          class="input" 
+          type="digit" 
+          placeholder="指定日均价格" 
+          value="{{dailyPrice}}"
+          bindinput="onDailyPriceInput"
+        />
+      </view>
+    </block>
+  </view>
+
+  <!-- 正在服役开关及动态内容 -->
+  <view class="section switch-section">
+    <!-- 正在服役开关 -->
+    <view class="switch-item">
+      <text wx:if="{{isServing}}">正在服役</text>
+      <text wx:else>已经退役</text>
+      <switch checked="{{isServing}}" bindchange="toggleServing" color="#07c160"/>
+    </view>
+
+    <!-- 横线分割 -->
+    <view class="horizontal-divider" wx:if="{{!isServing}}"></view>
+
+    <!-- 动态显示二手售卖价格和退役日期 -->
+    <block wx:if="{{!isServing}}">
+      <!-- 退役日期选择 -->
+      <view class="input-item">
+        <text class="input-label">退役日期</text>
+        <picker 
+          mode="date" 
+          value="{{retirementDate}}" 
+          start="{{purchaseDate}}" 
+          end="{{today}}"
+          bindchange="bindRetirementDateChange"
+        >
+          <view class="date-button">
+            {{retirementDateFormat || '选择日期'}}
+          </view>
+        </picker>
+      </view>
+      <!-- 横线分割 -->
+      <view class="horizontal-divider"></view>
+      <!-- 二手售卖价格 -->
+      <view class="input-item">
+        <input 
+          class="input" 
+          type="digit" 
+          placeholder="二手售卖价格" 
+          value="{{retirementPrice}}"
+          bindinput="onRetirementPriceInput"
+        />
+      </view>
+    </block>
+  </view>
+
+  <!-- 备注 -->
+  <view class="section">
+    <textarea 
+      class="remark" 
+      placeholder="添加备注" 
+      value="{{remark}}"
+      bindinput="onRemarkInput"
+    />
+  </view>
+
+  <!-- 提交按钮和灰色矩形 -->
+  <view class="submit-section">
+    <!-- 灰色透明矩形 -->
+    <view class="background-block"></view>
+    <!-- 提交按钮 -->
+    <button class="submit-btn" bindtap="submitForm">添加</button>
+  </view>
+</view>

@@ -1,0 +1,209 @@
+<view class="container">
+  <!-- 顶部资产卡片 -->
+  <view class="assets-card">
+    <view class="header">
+      <!-- 左边部分 -->
+      <view class="title-wrap">
+        <text class="title-top">我的资产</text>
+        <text class="subtitle">{{activeCount}}/{{totalCount}}</text>
+      </view>
+      <!-- 右边部分 -->
+      <view class="filter">
+        <view class="sort-btn" bindtap="toggleSortPopup">{{currentSortText}}</view>
+        <view class="filter-btn" bindtap="toggleFilterPopup">{{currentFilterText}} ▼</view>
+      </view>
+    </view>
+    <!-- 金额统计部分 -->
+    <view class="amounts">
+      <view class="stats-row">
+        <view class="stats-item">
+          <view class="stats-label">总资产</view>
+          <view class="stats-value">
+            <text>¥</text>{{totalAssets}}
+          </view>
+        </view>
+        <!-- 竖线 -->
+        <view class="vertical-divider"></view>
+        <view class="stats-item">
+          <view class="stats-label">总日均</view>
+          <view class="stats-value">
+            <text>¥</text>{{dailyIncome}}
+          </view>
+        </view>
+      </view> 
+    </view>
+  </view>
+
+  <!-- 分类筛选区域 -->
+  <scroll-view class="category-filter" scroll-x style="width: 98%;">
+    <view 
+      wx:for="{{categories}}" 
+      wx:key="id" 
+      class="category-item {{currentCategory === item.id ? 'active' : ''}}" 
+      data-value="{{item.id}}" 
+      bindtap="selectCategory"
+    >
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <!-- 资产列表 -->
+  <scroll-view scroll-y class="assets-list" style="height: calc(100vh - 400rpx);">
+    <view 
+      class="asset-item {{expandedId === item.id ? 'expanded' : ''}} {{item.is_favorite ? 'favorite' : ''}} {{item.retirement_date ? 'retired' : ''}}" 
+      wx:for="{{filteredAssetsList}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="toggleExpand"
+    >
+      <!-- 将 asset-left 和 asset-right 包在一个父容器中 -->
+      <view class="asset-content">
+        <view class="asset-left">
+          <image class="asset-icon" src="{{item.item_image}}" mode="aspectFit"></image>
+          <view class="asset-info">
+            <view class="asset-name">{{item.item_name}}</view>
+            <view class="asset-price">
+              <text>¥{{item.purchase_price}}</text>
+              <text class="dot">•</text>
+              <block wx:if="{{item.use_count_value > 0}}">
+                <text>¥{{item.itemDailyIncome}}/次</text>
+              </block>
+              <block wx:else>
+                <block wx:if="{{item.daily_price > 0}}">
+                  <text>¥{{item.itemDailyIncome}}/天<text class="locked-icon">✦</text></text>
+                </block>
+                <block wx:else>
+                  <text>¥{{item.itemDailyIncome}}/天</text>
+                </block>
+              </block>
+            </view>
+          </view>
+        </view>
+        <view class="asset-right">
+          <block wx:if="{{item.status === '已退役'}}">
+            <view class="status-with-days">
+              <text class="asset-status">{{item.status}}</text>
+              <block wx:if="{{item.use_count_value > 0}}">
+                <text class="asset-days"><text class="locked-icon">✦</text>{{item.days}}次</text>
+              </block>
+              <text wx:else class="asset-days">{{item.days}}天</text>
+            </view>
+          </block>
+          <block wx:else>
+            <block wx:if="{{item.use_count_value > 0}}">
+              <text class="asset-days"><text class="locked-icon">✦</text>{{item.days}}次</text>
+            </block>
+            <text wx:else class="asset-days">{{item.days}}天</text>
+          </block>
+        </view>
+      </view>
+
+      <!-- 展开后的详细信息 -->
+      <view class="asset-details" wx:if="{{expandedId === item.id}}">
+        <view class="horizontal-divider first"></view>
+        <view class="detail-section">
+          <text class="detail-title">购买信息</text>
+          <view class="detail-row">
+            <text class="detail-text">购买日期：{{item.purchase_date_format}}</text>
+          </view>
+          <view class="detail-row" wx:if="{{item.retirement_date}}">
+            <text class="detail-text">退役日期：{{item.retirement_date_format}}</text>
+          </view>
+          <view class="detail-row" wx:if="{{item.retirement_price > 0}}">
+            <text class="detail-text">退役金额：¥{{item.retirement_price}}</text>
+          </view>
+          <view class="detail-row" wx:if="{{item.use_count_value > 0}}">
+            <text class="detail-text">固定次数：{{item.use_count_value}} 次</text>
+          </view>
+          <view class="detail-row" wx:if="{{item.daily_price > 0}}">
+            <text class="detail-text">固定日均：¥{{item.daily_price}}/天</text>
+          </view>
+          <!-- 添加分类信息 -->
+          <view class="detail-row">
+            <text class="detail-text">分类：{{item.categoryName}}</text>
+          </view>
+        </view>
+        <view class="horizontal-divider" wx:if="{{item.description}}"></view>
+        <view class="detail-section" wx:if="{{item.description}}">
+          <text class="detail-title">备注</text>
+          <view class="detail-text">{{item.description}}</view>
+        </view>
+        <view class="horizontal-divider"></view>
+        <!-- 操作按钮 -->
+        <view class="icon-buttons">
+          <!-- 收藏按钮 -->
+          <view class="icon-button" catchtap="handleFavorite" data-id="{{item.id}}">
+            <image 
+              class="icon" 
+              src="{{item.is_favorite ? '../../images/unfavorite-icon.png' : '../../images/favorite-icon.png'}}"
+            ></image>
+            <text class="icon-text">{{item.is_favorite ? '取消' : '收藏'}}</text>
+          </view>
+
+          <!-- 编辑按钮 -->
+          <view class="icon-button" catchtap="handleEdit" data-id="{{item.id}}">
+            <image class="icon" src="../../images/edit-icon.png"></image>
+            <text class="icon-text">编辑</text>
+          </view>
+
+          <!-- 退役按钮（仅在未退役时显示） -->
+          <view class="icon-button" wx:if="{{!item.retirement_date}}" catchtap="handleRetirement" data-id="{{item.id}}">
+            <image class="icon" src="../../images/retirement-icon.png"></image>
+            <text class="icon-text">退役</text>
+          </view>
+
+          <!-- 删除按钮 -->
+          <view class="icon-button" catchtap="handleDelete" data-id="{{item.id}}">
+            <image class="icon" src="../../images/delete-icon.png"></image>
+            <text class="icon-text">删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 排序弹出层 -->
+  <view class="sort-popup {{showSortPopup ? 'show' : ''}}" wx:if="{{showSortPopup}}">
+    <view class="sort-mask" bindtap="toggleSortPopup"></view>
+    <view class="sort-content">
+      <view class="sort-title">排序方式</view>
+      <view class="sort-list">
+        <view 
+          class="sort-item {{currentSort === item.value ? 'active' : ''}}" 
+          wx:for="{{sortOptions}}" 
+          wx:key="value"
+          bindtap="selectSort"
+          data-value="{{item.value}}"
+        >
+          {{item.text}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 筛选弹出层 -->
+  <view class="filter-popup {{showFilterPopup ? 'show' : ''}}" wx:if="{{showFilterPopup}}">
+    <view class="filter-mask" bindtap="toggleFilterPopup"></view>
+    <view class="filter-content">
+      <view class="filter-title">筛选条件</view>
+      <view class="filter-list">
+        <view 
+          class="filter-item {{currentFilter === item.value ? 'active' : ''}}" 
+          wx:for="{{filterOptions}}" 
+          wx:key="value"
+          bindtap="selectFilter"
+          data-value="{{item.value}}"
+        >
+          {{item.text}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 悬浮按钮 -->
+  <view class="floating-button" wx:if="{{!showSortPopup && !showFilterPopup}}">
+    <button open-type="share" bindtap="onShareAppMessage" class="share-button">
+      <image src="../../images/floating-icon.png" mode="aspectFit" class="floating-icon"></image>
+    </button>
+  </view>
+</view>

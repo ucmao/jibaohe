@@ -1,0 +1,90 @@
+page {
+  height: 100vh;
+  overflow: hidden; /* 禁用页面滚动 */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20rpx 10rpx;
+}
+
+.header {
+  padding: 16px;
+  text-align: center;
+  background-color: #fff;
+}
+
+
+.title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.category-scroll {
+  white-space: nowrap;
+  padding: 10px 0;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.category-list {
+  display: inline-flex;
+}
+
+.category-item {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 16px;
+  background-color: #f5f5f5;
+  font-size: 16px;
+  color: #333;
+}
+
+.category-item.active {
+  background-color: #07c160;
+  color: #fff;
+}
+
+.icon-grid-container {
+  height: calc(100vh - 120px); /* 根据页面高度调整 */
+  padding: 10px;
+}
+
+.icon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* 均匀分布 */
+  gap: 10px; /* 图标之间的间距 */
+  padding: 20px;
+}
+
+.icon-item {
+  width: 60px; /* 每行 5 个图标，减去间距 */
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.icon-item:active {
+  transform: scale(0.95);
+}
+
+.icon {
+  width: 60%;
+  height: 60%;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: 14px;
+  color: #999;
+}
+

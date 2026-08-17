@@ -1,0 +1,197 @@
+/* 页面容器 */
+.container {
+  padding: 50rpx;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 150vh; /* 容器高度为屏幕高度 */
+}
+
+/* 资产卡片样式 */
+.assets-card {
+  color: white;
+  padding: 30rpx;
+  border-radius: 30rpx;
+  width: 90%;
+  flex-shrink: 0;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1); /* 添加阴影增强层次感 */
+}
+
+/* 滚动区域样式 */
+.scroll-area {
+  flex: 1; /* 占满剩余空间 */
+  overflow-y: auto; /* 允许垂直滚动 */
+  padding-bottom: 20rpx; /* 底部留出空间 */
+}
+
+/* header 样式 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+.title-top {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+/* 资产列表样式 */
+.assets-list {
+  margin-top: 20rpx;
+}
+
+.asset-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid rgba(255, 255, 255, 0.1);
+}
+
+.asset-item:last-child {
+  border-bottom: none;
+}
+
+.asset-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.asset-stats {
+  display: flex;
+  width: 100%;
+}
+
+.asset-stats .stats-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.asset-stats .stats-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.asset-stats .stats-label {
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-bottom: 4rpx;
+}
+
+.asset-stats .stats-value {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.asset-stats .stats-value-total {
+  font-size: 38rpx;
+  font-weight: bold;
+}
+
+/* 分类统计卡片样式 */
+.category-card {
+  background: white;
+  padding: 30rpx;
+  border-radius: 30rpx;
+  width: 90%;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1); /* 添加阴影增强层次感 */
+}
+
+.category-list {
+  margin-top: 20rpx;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+
+.category-item:last-child {
+  border-bottom: none;
+}
+
+.category-name {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333; /* 深色文字 */
+}
+
+.category-stats {
+  display: flex;
+  width: 100%;
+}
+
+.category-stats .stats-row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.category-stats .stats-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-stats .stats-label {
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-bottom: 4rpx;
+  color: #666; /* 灰色文字 */
+}
+
+.category-stats .stats-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333; /* 深色文字 */
+}
+
+/* 底部按钮和版本号样式 */
+.footer {
+  margin-top: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-btn {
+  background: #07c160;
+  color: white;
+  font-size: 32rpx;
+  padding: 20rpx 40rpx;
+  border-radius: 50rpx;
+  margin-bottom: 40rpx;
+  margin-top: 60rpx;
+  box-shadow: 0 4rpx 12rpx rgba(7, 193, 96, 0.3); /* 绿色阴影 */
+}
+
+.version {
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  color: #888;
+  text-align: center;
+}
+
+/* 卡片背景颜色 */
+.total-card {
+  background: linear-gradient(to right, #1a66e6, #327ffe); /* 蓝色渐变 */
+}
+
+.active-card {
+  background: linear-gradient(to right, #3cc698, #26ae73); /* 绿色渐变 */
+}
+
+.category-card {
+  background: white; /* 白色背景 */
+}

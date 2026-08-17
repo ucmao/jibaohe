@@ -1,0 +1,97 @@
+<view class="container">
+  <!-- 顶部资产卡片（固定不动，默认打开） -->
+  <view class="assets-card total-card">
+    <view class="header">
+      <text class="title-top">全部资产</text>
+    </view>
+    <view class="assets-list">
+      <view class="asset-item" wx:for="{{assetTypes}}" wx:key="key">
+        <view class="asset-stats">
+          <view class="stats-row">
+            <view class="stats-item">
+              <text class="stats-label">金额</text>
+              <text class="stats-value-total">¥{{item.amount}}</text>
+            </view>
+            <view class="stats-item">
+              <text class="stats-label">日均</text>
+              <text class="stats-value-total">¥{{item.daily_avg}}</text>
+            </view>
+            <view class="stats-item">
+              <text class="stats-label">数量</text>
+              <text class="stats-value-total">{{item.count}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 滚动区域 -->
+  <scroll-view scroll-y class="scroll-area">
+    <!-- 活跃资产卡片 -->
+    <view class="assets-card active-card">
+      <view class="header" bindtap="toggleAssetStats">
+        <text class="title-top">资产统计</text>
+        <text class="toggle-icon">{{isAssetStatsExpanded ? '▼' : '▲'}}</text>
+      </view>
+      <view class="assets-list" wx:if="{{isAssetStatsExpanded}}">
+        <view class="asset-item" wx:for="{{assetTypes2}}" wx:key="key">
+          <view class="asset-name">{{item.label}}</view>
+          <view class="asset-stats">
+            <view class="stats-row">
+              <view class="stats-item">
+                <text class="stats-label">金额</text>
+                <text class="stats-value">¥{{item.amount}}</text>
+              </view>
+              <view class="stats-item">
+                <text class="stats-label">日均</text>
+                <text class="stats-value">¥{{item.daily_avg}}</text>
+              </view>
+              <view class="stats-item">
+                <text class="stats-label">数量</text>
+                <text class="stats-value">{{item.count}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 分类统计卡片 -->
+    <view class="category-card">
+      <view class="header" bindtap="toggleCategoryStats">
+        <text class="title-top">分类统计</text>
+        <text class="toggle-icon">{{isCategoryStatsExpanded ? '▼' : '▲'}}</text>
+      </view>
+      <view class="category-list" wx:if="{{isCategoryStatsExpanded}}">
+        <view class="category-item" wx:for="{{categories}}" wx:key="key">
+          <view class="category-name">{{item.name}}</view>
+          <view class="category-stats">
+            <view class="stats-row">
+              <view class="stats-item">
+                <text class="stats-label">金额</text>
+                <text class="stats-value">¥{{item.amount}}</text>
+              </view>
+              <view class="stats-item">
+                <text class="stats-label">日均</text>
+                <text class="stats-value">¥{{item.daily_avg}}</text>
+              </view>
+              <view class="stats-item">
+                <text class="stats-label">数量</text>
+                <text class="stats-value">{{item.count}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部按钮和版本号 -->
+    <view class="footer">
+      <button class="contact-btn" open-type="contact" bindtap="contactCustomerService">咨询客服</button>
+      <view class="version" bindlongpress="copyOpenid" data-openid="{{openid}}">
+        版本号 1.0.5
+      </view>
+    </view>
+  </scroll-view>
+</view>

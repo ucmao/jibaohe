@@ -1,0 +1,103 @@
+/* pages/user/user.wxss */
+
+/* 页面容器 */
+.container {
+  padding: 20px;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+}
+
+/* 用户信息 */
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 卡片样式 */
+.card {
+  width: 90%;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* 按钮样式 */
+.btn {
+  width: 90%;
+  height: 50px;
+  line-height: 50px;
+  text-align: left;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* 导出按钮 */
+.btn-export {
+  background: linear-gradient(135deg, #007AFF, #00BFFF);
+}
+
+/* 导入按钮 */
+.btn-import {
+  background: linear-gradient(135deg, #FF9500, #FFCC00);
+}
+
+/* 下载模板按钮 */
+.btn-template {
+  background: linear-gradient(135deg, #34C759, #00D95F);
+}
+
+/* 数据分析按钮 */
+.btn-analysis {
+  background: linear-gradient(135deg, #5856D6, #AF52DE);
+}
+
+/* 联系客服按钮 */
+.btn-contact {
+  background: linear-gradient(135deg, #5AC8FA, #00A8FF);
+}
+
+/* 关于我们按钮 */
+.btn-about {
+  background: linear-gradient(135deg, #8E8E93, #AEAEB2);
+}

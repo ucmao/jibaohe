@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/add/add",
+    "pages/user/user",
+    "pages/select-icon/select-icon",
+    "pages/edit/edit",
+    "pages/statistics/statistics"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "资产",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "text": "添加",
+        "iconPath": "images/add.png",
+        "selectedIconPath": "images/add-active.png"
+      },
+      {
+        "pagePath": "pages/statistics/statistics",
+        "text": "统计",
+        "iconPath": "images/statistics.png",
+        "selectedIconPath": "images/statistics-active.png"
+      }
+    ],
+    "color": "#999", 
+    "selectedColor": "#4080FF",
+    "backgroundColor": "#fff",
+    "borderStyle": "black"
+  },
+  "window": {
+    "navigationBarTitleText": "记宝盒"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

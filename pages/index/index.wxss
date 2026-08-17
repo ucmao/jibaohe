@@ -1,0 +1,403 @@
+/* 容器样式 */
+.container {
+  padding: 20rpx;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+/* 资产卡片样式 */
+.assets-card {
+  background: linear-gradient(to right, #1a66e6, #327ffe);
+  box-shadow: 0 4rpx 12rpx rgba(64, 128, 255, 0.3);
+  color: white;
+  padding: 30rpx;
+  border-radius: 30rpx;
+  width: 90%;
+  flex-shrink: 0;
+  height: 200rpx;
+}
+
+/* header 样式 */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+/* 左边部分：title-wrap */
+.title-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.title-top {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 30rpx;
+  opacity: 0.8;
+  margin: 0 10rpx;
+}
+
+/* 过滤器和排序按钮样式 */
+.filter {
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+
+.sort-btn, .filter-btn {
+  font-size: 28rpx;
+  margin: 0 10rpx;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 30rpx;
+  padding: 10rpx 20rpx;
+}
+
+/* 金额统计样式 */
+.amounts {
+  margin-top: 20rpx;
+}
+
+.stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stats-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-label {
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-bottom: 4rpx;
+}
+
+.stats-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.stats-value text {
+  font-size: 32rpx;
+  margin-right: 8rpx;
+}
+
+/* 竖线样式 */
+.vertical-divider {
+  width: 2rpx;
+  height: 50rpx;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 20rpx;
+}
+
+/* 横线样式 */
+.horizontal-divider {
+  width: 600rpx;
+  height: 2rpx;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 20rpx 0;
+}
+
+.first {
+  margin-top: 0;
+}
+
+/* 资产列表样式 */
+.assets-list {
+  width: 95%;
+  overflow: hidden;
+}
+
+.asset-item {
+  width: 100%;
+  background: white;
+  padding: 26rpx 24rpx;
+  border-radius: 30rpx;
+  margin-top: 15rpx;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.asset-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+}
+
+.asset-left {
+  display: flex;
+  align-items: center;
+}
+
+.asset-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 30rpx;
+  padding-left: 10rpx;
+}
+
+.asset-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.asset-name {
+  font-size: 34rpx;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+
+.asset-price {
+  font-size: 30rpx;
+  color: white;
+}
+
+.asset-price .dot {
+  margin: 0 30rpx;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 20rpx;
+}
+
+.asset-right {
+  display: flex;
+  align-items: center;
+}
+
+.status-with-days {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8rpx;
+}
+
+.asset-status {
+  color: white;
+  font-size: 24rpx;
+  background: rgba(199, 188, 188, 0.5);
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  margin-bottom: 8rpx;
+  margin-right: 10rpx;
+}
+
+.asset-days {
+  color: white;
+  font-size: 34rpx;
+  margin-right: 10rpx;
+  font-weight: bold;
+}
+
+/* 展开后的详细信息样式 */
+.asset-details {
+  margin-top: 20rpx;
+}
+
+.detail-section {
+  margin-bottom: 20rpx;
+}
+
+.detail-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  display: block;
+  color: white;
+  padding-left: 20rpx;
+}
+
+.detail-text {
+  font-size: 30rpx;
+  color: white;
+  padding-left: 20rpx;
+  padding-right: 10rpx;
+  text-align: justify; /* 添加这一行 */
+}
+
+/* 操作按钮样式 */
+.icon-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx;
+}
+
+.icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.icon-text {
+  margin-top: 10rpx;
+  font-size: 20rpx;
+  color: white;
+  text-align: center;
+}
+
+/* 悬浮按钮容器 */
+.floating-button {
+  position: fixed;
+  right: 30rpx;
+  bottom: 30rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.share-button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-icon {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+/* 弹窗通用样式 */
+.sort-popup, .filter-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  visibility: hidden;
+}
+
+.sort-popup.show, .filter-popup.show {
+  visibility: visible;
+}
+
+.sort-mask, .filter-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.sort-content, .filter-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 24rpx 24rpx 0 0;
+  padding: 30rpx;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.sort-popup.show .sort-content, .filter-popup.show .filter-content {
+  transform: translateY(0);
+}
+
+.sort-title, .filter-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30rpx;
+  color: #333;
+}
+
+.sort-list, .filter-list {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.sort-item, .filter-item {
+  padding: 24rpx 0;
+  text-align: center;
+  font-size: 32rpx;
+  color: #333;
+  border-bottom: 1rpx solid #eee;
+}
+
+.sort-item.active, .filter-item.active {
+  color: #4080ff;
+}
+
+.sort-item:last-child, .filter-item:last-child {
+  border-bottom: none;
+}
+
+/* 分类筛选样式 */
+.category-filter {
+  white-space: nowrap;
+  padding: 20rpx 10rpx;
+  background-color: #f5f5f5;
+}
+
+.category-item {
+  display: inline-block;
+  padding: 10rpx 20rpx;
+  margin-right: 20rpx;
+  border-radius: 30rpx;
+  background-color: #fff;
+  color: #333;
+  font-size: 28rpx;
+  border: 1rpx solid #ddd;
+}
+
+.category-item.active {
+  background-color: #007AFF;
+  color: #fff;
+  border-color: #007AFF;
+}
+
+/* 默认背景颜色 */
+.asset-item {
+  background: linear-gradient(to right, #3cc698, #26ae73);
+}
+
+/* 收藏时的背景颜色 */
+.asset-item.favorite {
+  background: linear-gradient(to right, #eabf59, #d9a640) !important;
+}
+
+/* 退役状态的背景颜色 */
+.asset-item.retired {
+  background: linear-gradient(to right, #8b939d, #737b85) !important;
+}
+
+.locked-icon {
+  font-size: 20rpx;
+  opacity: 0.5;
+  padding: 0 5rpx;
+}

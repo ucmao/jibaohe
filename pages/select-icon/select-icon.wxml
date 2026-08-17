@@ -1,0 +1,51 @@
+<view class="container">
+  <!-- 标题 -->
+  <view class="header">
+    <text class="title">选择资产图标</text>
+  </view>
+
+  <!-- 分类选择 -->
+  <scroll-view scroll-x class="category-scroll" enhanced show-scrollbar="{{false}}">
+    <view class="category-list">
+      <view 
+        class="category-item {{selectedCategory === item.id ? 'active' : ''}}" 
+        wx:for="{{categories}}" 
+        wx:key="id"
+        bindtap="switchCategory"
+        data-id="{{item.id}}"
+      >
+        {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 图标网格 -->
+  <scroll-view 
+    scroll-y 
+    class="icon-grid-container"
+    enhanced
+    show-scrollbar="{{false}}"
+  >
+    <view class="icon-grid">
+      <view 
+        class="icon-item"
+        wx:for="{{iconList}}"
+        wx:key="url"
+        bindtap="selectIcon"
+        data-url="{{item}}"
+      >
+        <image 
+          class="icon" 
+          src="{{item}}" 
+          mode="aspectFit"
+          lazy-load
+        />
+      </view>
+    </view>
+
+    <!-- 加载提示 -->
+    <view class="loading" wx:if="{{loading}}">
+      <text>加载中...</text>
+    </view>
+  </scroll-view>
+</view>

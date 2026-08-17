@@ -1,0 +1,181 @@
+.container {
+  padding: 30rpx;
+  padding-bottom: 250rpx;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section {
+  margin-bottom: 30rpx;
+  background: white;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  width: 95%;
+  box-sizing: border-box;
+}
+
+/* 图标选择区域 */
+.icon-section {
+  display: flex;
+  justify-content: center;
+}
+
+.icon-picker {
+  width: 120rpx;
+  height: 120rpx;
+  border: 2rpx dashed #ccc;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder {
+  color: #999;
+  font-size: 28rpx;
+}
+
+.selected-icon {
+  max-width: 100rpx;  /* 最大宽度 */
+  max-height: 100rpx; /* 最大高度 */
+}
+
+/* 分类选择区域 */
+.category-scroll {
+  white-space: nowrap;
+  width: 100%;
+}
+
+.category-item {
+  display: inline-block;
+  padding: 12rpx 24rpx;
+  margin-right: 16rpx;
+  background: #f5f5f5;
+  border-radius: 100rpx;
+  font-size: 34rpx;
+  color: #666;
+}
+
+.category-item.active {
+  background: #07c160;
+  color: white;
+}
+
+/* 输入项容器 */
+.input-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+/* 输入框左侧提示词样式 */
+.input-label {
+  font-size: 34rpx;
+  color: #333;
+  width: 160rpx; /* 固定宽度，确保对齐 */
+  padding-left: 20rpx;
+}
+
+/* 输入框样式 */
+.input {
+  flex: 1;
+  height: 80rpx;
+  font-size: 34rpx;
+  padding-left: 20rpx;
+}
+
+/* 横线样式 */
+.horizontal-divider {
+  width: 100%;
+  height: 2rpx;
+  background: #f0f0f0;
+  margin: 10rpx 0;
+}
+
+/* 日期选择器按钮样式 */
+.date-button {
+  flex: 1;
+  background: #f5f5f5;
+  border-radius: 20rpx;
+  padding: 12rpx 22rpx;
+  font-size: 32rpx;
+  color: #666;
+  text-align: right;
+  margin-left: 130rpx;
+}
+
+/* 未选择日期时的占位符样式 */
+.date-button.placeholder {
+  color: #999;
+}
+
+/* 开关选项 */
+.switch-section {
+  padding: 24rpx;
+}
+
+.switch-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 34rpx;
+  padding-left: 20rpx;
+}
+
+/* 备注输入框 */
+.remark {
+  width: 100%;
+  height: 250rpx;
+  font-size: 34rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 提交按钮容器 */
+.submit-section {
+  width: 100%;
+  position: fixed; /* 固定定位，悬浮在页面底部 */
+  bottom: 0; /* 放置在页面底部 */
+  left: 0; /* 从左侧开始 */
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  z-index: 100; /* 确保悬浮层在最上层 */
+}
+
+/* 灰色透明矩形 */
+.background-block {
+  position: absolute; /* 绝对定位，相对于 submit-section */
+  bottom: 0; /* 放置在底部 */
+  left: 0; /* 从左侧开始 */
+  width: 100%; /* 宽度占满屏幕 */
+  height: 200rpx; /* 比按钮高一点 */
+  background-color: rgba(255, 255, 255, 0.9); /* 灰色透明背景 */
+  z-index: 1; /* 确保矩形在按钮下方 */
+}
+
+/* 提交按钮 */
+.submit-btn {
+  background: #4080ff;
+  box-shadow: 0 4rpx 12rpx rgba(64, 128, 255, 0.3); /* 蓝色阴影 */
+  color: white;
+  border-radius: 50rpx;
+  font-size: 38rpx;
+  height: 100rpx;
+  line-height: 100rpx; /* 确保行高与高度一致 */
+  width: 90%; /* 宽度占满父容器的90%，留出一些边距 */
+  display: flex; /* 使用 flex 布局 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  padding: 0; /* 重置 padding */
+  margin: 0; /* 重置 margin */
+  position: relative; /* 相对定位 */
+  z-index: 2; /* 确保按钮在矩形上方 */
+  bottom: 50rpx; /* 放置在底部 */
+}
+
+.submit-btn:active {
+  opacity: 0.8;
+}
