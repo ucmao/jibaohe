@@ -71,3 +71,23 @@ script-temp/
 *.local
 *.log.*
 *~
+
+# ── backend/ Python 后端 ───────────────────────────────────────────────────────
+# 敏感配置（不提交真实凭据）
+backend/.env
+# SQLite 数据库文件（本地数据，不提交）
+backend/*.db
+backend/*.db-shm
+backend/*.db-wal
+# Python 虚拟环境
+backend/.venv/
+backend/venv/
+# Python 字节码缓存
+backend/__pycache__/
+backend/**/__pycache__/
+backend/**/*.pyc
+backend/**/*.pyo
+# IDE
+backend/.idea/
+# macOS
+backend/.DS_Store
